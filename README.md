@@ -5,7 +5,7 @@ Welcome to `Schoubl Stack` - a quick startup template for the modern Nuxt develo
 The Schoubl Stack consists out of:
 
 - [x] Nuxt
-- [ ] TailwindCSS
+- [x] TailwindCSS
 - [ ] Drizzle
 - [ ] Turso
 - [ ] Cloudflare Pages
