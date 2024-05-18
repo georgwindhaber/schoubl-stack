@@ -8,5 +8,5 @@ The Schoubl Stack consists out of:
 - [x] TailwindCSS
 - [x] Drizzle
 - [x] Turso
-- [ ] Cloudflare Pages
+- [x] Cloudflare Pages
 - [ ] Nuxt Auth
