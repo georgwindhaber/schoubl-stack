@@ -13,4 +13,6 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false,
     },
   },
+  modules: ["@sidebase/nuxt-auth", "@nuxt/image"],
+  auth: { provider: { type: "authjs" } },
 });

@@ -9,4 +9,4 @@ The Schoubl Stack consists out of:
 - [x] Drizzle
 - [x] Turso
 - [x] Cloudflare Pages
-- [ ] Nuxt Auth
+- [ ] Nuxt Auth (Sidebase)

@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
+    "@nuxt/image": "^1.7.0",
+    "@sidebase/nuxt-auth": "^0.7.2",
     "drizzle-orm": "^0.30.10",
+    "next-auth": "4.21.1",
     "nuxt": "^3.11.2",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
