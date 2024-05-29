@@ -17,6 +17,6 @@ export default defineNuxtConfig({
   auth: {
     provider: { type: "authjs" },
     globalAppMiddleware: true,
-    origin: process.env.AUTH_ORIGIN,
+    origin: process.env.AUTH_ORIGIN ?? "https://schoubl-stack.pages.dev",
   },
 });
