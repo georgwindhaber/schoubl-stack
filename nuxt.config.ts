@@ -14,5 +14,9 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@sidebase/nuxt-auth", "@nuxt/image"],
-  auth: { provider: { type: "authjs" }, globalAppMiddleware: true },
+  auth: {
+    provider: { type: "authjs" },
+    globalAppMiddleware: true,
+    origin: process.env.AUTH_ORIGIN,
+  },
 });
