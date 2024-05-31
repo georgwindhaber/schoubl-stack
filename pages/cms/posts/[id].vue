@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import contentEditor from '~/components/cms/content-blocks/content-editor.vue';
+
 definePageMeta({
 	layout: 'cms'
 })
@@ -24,9 +26,6 @@ const savePost = async () => {
 			Title
 			<input v-if="post" type="text" v-model="post.title" placeholder="title" />
 		</label>
-		<label>
-			Body
-			<input v-if="post" type="text" v-model="post.body" />
-		</label>
+		<content-editor />
 	</cms-form>
 </template>
