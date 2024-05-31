@@ -20,7 +20,6 @@ const savePost = async () => {
 
 <template>
 	<cms-form @save="savePost">
-		{{ post }}
 		<label>
 			Title
 			<input v-if="post" type="text" v-model="post.title" placeholder="title" />
