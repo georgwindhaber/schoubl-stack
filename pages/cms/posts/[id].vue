@@ -7,7 +7,7 @@ const route = useRoute()
 const post = useState<{ title: string, body: string }>(`post-${route.params.id}`)
 
 await callOnce(`post-${route.params.id}`, async () => {
-	post.value = (await $fetch(`/api/posts/${route.params.id}`))[0]
+	post.value = (await $fetch(`/api/posts/${route.params.id}`))
 })
 
 const savePost = async () => {
