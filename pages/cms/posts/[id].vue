@@ -21,7 +21,7 @@ const savePost = async () => {
 </script>
 
 <template>
-	<cms-form @save="savePost">
+	<cms-form @save="savePost" :title="post.title">
 		<label>
 			Title
 			<input v-if="post" type="text" v-model="post.title" placeholder="title" />

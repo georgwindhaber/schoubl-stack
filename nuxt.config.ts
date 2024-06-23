@@ -13,10 +13,10 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false,
     },
   },
-  modules: ["@sidebase/nuxt-auth", "@nuxt/image"],
-  auth: {
-    provider: { type: "authjs" },
-    globalAppMiddleware: true,
-    origin: process.env.AUTH_ORIGIN ?? "https://schoubl-stack.pages.dev",
-  },
+  modules: ["@sidebase/nuxt-auth", "@nuxt/image", "@pinia/nuxt"],
+  // auth: {
+  //   provider: { type: "authjs" },
+  //   globalAppMiddleware: true,
+  //   origin: process.env.AUTH_ORIGIN ?? "https://schoubl-stack.pages.dev",
+  // },
 });

@@ -23,3 +23,6 @@ install-state.gz
 .env
 .env.*
 !.env.example
+
+# Local dev files
+local.db

@@ -9,7 +9,7 @@ const contents = ref<Array<ContentBlockType>>([])
 const addBlock = () => {
 	contents.value.push({
 		id: uuid(),
-		type: 'image'
+		type: 'none'
 	})
 }
 
@@ -24,6 +24,8 @@ const deleteBlock = (index: number) => {
 		<h3>Content Editor</h3>
 		<cms-button @click="addBlock">Add content</cms-button>
 		<content-block v-for="(content, index) in contents" :content="content" :key="content.id" :id="content.id"
-			@delete="deleteBlock(index)" />
+			@change="contents[index] = $event" @delete="deleteBlock(index)" />
+
+		{{ contents }}
 	</div>
 </template>
