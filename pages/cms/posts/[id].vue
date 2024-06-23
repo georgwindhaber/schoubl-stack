@@ -1,31 +1,22 @@
 <script setup lang="ts">
 import contentEditor from '~/components/cms/content-blocks/content-editor.vue';
+import { usePostStore } from '~/stores/post';
 
 definePageMeta({
 	layout: 'cms'
 })
 
 const route = useRoute()
-const post = useState<{ title: string, body: string }>(`post-${route.params.id}`)
+const postStore = usePostStore()
 
-await callOnce(`post-${route.params.id}`, async () => {
-	post.value = (await $fetch(`/api/posts/${route.params.id}`))
-})
+const { title } = storeToRefs(postStore)
 
-const savePost = async () => {
-	await $fetch(`/api/posts/${route.params.id}`, {
-		method: 'POST', body: post.value
-	})
-}
+await useAsyncData(`post-${route.params.id}`, () => postStore.fetchPost(route.params.id as string))
 
 </script>
 
 <template>
-	<cms-form @save="savePost" :title="post.title">
-		<label>
-			Title
-			<input v-if="post" type="text" v-model="post.title" placeholder="title" />
-		</label>
+	<cms-form @save="postStore.savePost" :title="title">
 		<content-editor />
 	</cms-form>
 </template>
