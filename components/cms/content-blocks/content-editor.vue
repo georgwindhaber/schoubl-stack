@@ -21,7 +21,6 @@ const deleteBlock = (index: number) => {
 
 <template>
 	<div>
-		<h3>Content Editor</h3>
 		<cms-button @click="addBlock">Add content</cms-button>
 		<content-block v-for="(content, index) in contents" :content="content" :key="content.id" :id="content.id"
 			@change="contents[index] = $event" @delete="deleteBlock(index)" />
