@@ -27,8 +27,8 @@ const deletePost = async (id: number) => {
 		</header>
 		<main>
 			<ul class="p-5">
-				<li v-for="post in posts.data.value" :key="post.id" class="even:bg-slate-50 hover:bg-slate-100  p-3">
-					<cms-link :to="`/cms/posts/${post.id}`">
+				<li v-for="post in posts.data.value" :key="post.id" class="flex even:bg-slate-50 hover:bg-slate-100  p-3">
+					<cms-link :to="`/cms/posts/${post.id}`" class="flex justify-between items-center flex-1">
 						<span v-if="post.title">{{ post.title }}</span>
 						<span v-else class="italic text-slate-800">No title</span>
 						<cms-button class="ml-3">Edit</cms-button>
