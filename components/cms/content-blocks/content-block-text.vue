@@ -1,4 +1,8 @@
 <script setup lang="ts">
+const props = defineProps<{
+	content: ContentBlock,
+}>()
+
 defineEmits<{
 	change: [{
 		text: string
@@ -8,5 +12,5 @@ defineEmits<{
 
 
 <template>
-	<input type="text" @change="$emit('change', { text: $event.target?.value })" />
+	<input type="text" :value="props.content.text" @change="$emit('change', { text: $event.target?.value })" />
 </template>

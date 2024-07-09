@@ -3,18 +3,19 @@ import type { ContentBlock as ContentBlockType } from '~/types/cms/content-block
 import contentBlock from "./content-block.vue"
 import { v4 as uuid } from 'uuid'
 
-const contents = ref<Array<ContentBlockType>>([])
+const postStore = usePostStore()
+const { content } = storeToRefs(postStore)
 
 
 const addBlock = () => {
-	contents.value.push({
+	content.value.push({
 		id: uuid(),
 		type: 'none'
 	})
 }
 
 const deleteBlock = (index: number) => {
-	contents.value = [...contents.value.slice(0, index), ...contents.value.slice(index + 1, contents.value.length)]
+	content.value = [...content.value.slice(0, index), ...content.value.slice(index + 1, content.value.length)]
 }
 
 </script>
@@ -22,9 +23,9 @@ const deleteBlock = (index: number) => {
 <template>
 	<div>
 		<cms-button @click="addBlock">Add content</cms-button>
-		<content-block v-for="(content, index) in contents" :content="content" :key="content.id" :id="content.id"
-			@change="contents[index] = $event" @delete="deleteBlock(index)" />
+		<content-block v-for="(block, index) in content" :content="block" :key="block.id" :id="block.id"
+			@change="content[index] = $event" @delete="deleteBlock(index)" />
 
-		{{ contents }}
+		{{ content }}
 	</div>
 </template>

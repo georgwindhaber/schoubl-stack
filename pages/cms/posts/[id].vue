@@ -9,14 +9,14 @@ definePageMeta({
 const route = useRoute()
 const postStore = usePostStore()
 
-const { title } = storeToRefs(postStore)
+const { title, id } = storeToRefs(postStore)
 
 await useAsyncData(`post-${route.params.id}`, () => postStore.fetchPost(route.params.id as string))
 
 </script>
 
 <template>
-	<cms-form @save="postStore.savePost" :title="title">
+	<cms-form>
 		<content-editor />
 	</cms-form>
 </template>

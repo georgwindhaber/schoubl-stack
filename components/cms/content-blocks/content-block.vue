@@ -23,7 +23,8 @@ const updateContent = (newContent: Partial<ContentBlock>, type: ContentBlockType
 	<div>
 		<cms-button @click="$emit('delete')">Delete</cms-button>
 
-		<select @change="$emit('change', { ...props.content, type: ($event.target as HTMLSelectElement).value })">
+		<select :value="props.content.type"
+			@change="$emit('change', { ...props.content, type: ($event.target as HTMLSelectElement).value })">
 			<option value="none">Please choose a type</option>
 			<option value="text">Text</option>
 			<option value="image">Image</option>
