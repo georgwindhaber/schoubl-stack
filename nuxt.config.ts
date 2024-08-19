@@ -13,7 +13,15 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false,
     },
   },
-  modules: ["@sidebase/nuxt-auth", "@nuxt/image", "@pinia/nuxt"],
+  modules: [
+    "@sidebase/nuxt-auth",
+    "@nuxt/image",
+    "@pinia/nuxt",
+    "nuxt-file-storage",
+  ],
+  fileStorage: {
+    mount: "/Users/georgwindhaber/source/schoubl-stack/upload",
+  },
   // auth: {
   //   provider: { type: "authjs" },
   //   globalAppMiddleware: true,

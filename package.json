@@ -17,6 +17,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@sidebase/nuxt-auth": "^0.6.7",
     "drizzle-orm": "^0.30.10",
+    "formidable": "^3.5.1",
     "next-auth": "4.22.5",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
@@ -29,6 +30,7 @@
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.19",
     "drizzle-kit": "^0.21.3",
+    "nuxt-file-storage": "^0.2.7",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
   }

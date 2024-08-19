@@ -10,6 +10,9 @@
 					<li>
 						<cms-link to="/cms/posts">Posts</cms-link>
 					</li>
+					<li>
+						<cms-link to="/cms/files">Files</cms-link>
+					</li>
 				</ul>
 			</nav>
 		</aside>
