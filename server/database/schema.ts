@@ -20,10 +20,9 @@ export const posts = sqliteTable("posts", {
 export const files = sqliteTable("files", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   fileId: text("file_id").notNull().unique(),
-  diplayName: text("display_name").notNull(),
+  displayName: text("display_name").notNull(),
   fileUrl: text("file_url").notNull(),
   localPath: text("local_path").notNull(),
-  deleted: integer("deleted", { mode: "boolean" }).notNull().default(true),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
   modifiedAt: integer("modified_at", { mode: "timestamp" }).notNull(),
 });
