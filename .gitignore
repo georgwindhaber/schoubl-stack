@@ -26,3 +26,7 @@ install-state.gz
 
 # Local dev files
 local.db
+
+# User files
+files/
+userFiles/

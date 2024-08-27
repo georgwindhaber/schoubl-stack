@@ -19,7 +19,7 @@ const submit = async () => {
 </script>
 
 <template>
-  <div>Files {{ files }}</div>
+  <div>Files</div>
 
   <input type="file" @input="handleFileInput" />
   <button @click="submit">submit</button>

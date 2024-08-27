@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     "nuxt-file-storage",
   ],
   fileStorage: {
-    mount: "/Users/georgwindhaber/source/schoubl-stack/upload",
+    mount: process.env.FILE_STORAGE_PATH,
   },
   // auth: {
   //   provider: { type: "authjs" },
