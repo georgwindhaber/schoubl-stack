@@ -28,5 +28,4 @@ install-state.gz
 local.db
 
 # User files
-files/
 userFiles/
