@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid";
+import { queryAllFiles } from "./index.get";
 const FILE_PATH = "/public/userFiles";
 
 export default defineEventHandler(async (event) => {
@@ -21,7 +22,7 @@ export default defineEventHandler(async (event) => {
       .returning({ id: tables.files.id });
   }
 
-  return "success!";
+  return await queryAllFiles();
 });
 
 interface File {

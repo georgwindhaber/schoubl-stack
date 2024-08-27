@@ -9,7 +9,7 @@ const { handleFileInput, files } = useFileStorage();
 const fileDb = ref(await $fetch("/api/files"));
 
 const submit = async () => {
-  await $fetch("/api/files", {
+  fileDb.value = await $fetch("/api/files", {
     method: "POST",
     body: {
       files: files.value,
@@ -18,10 +18,10 @@ const submit = async () => {
 };
 
 const handleDeleteFile = async (fileId: string) => {
-  await $fetch(`/api/files/${fileId}`, {
+  fileDb.value = fileDb.value.filter((file) => file.fileId !== fileId);
+  fileDb.value = await $fetch(`/api/files/${fileId}`, {
     method: "DELETE",
   });
-  fileDb.value = fileDb.value.filter((file) => file.fileId !== fileId);
 };
 </script>
 
