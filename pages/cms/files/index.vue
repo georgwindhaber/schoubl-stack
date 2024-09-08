@@ -33,26 +33,27 @@ const handleDeleteFile = async (fileId: string) => {
       <div class="flex justify-between">
         <input
           type="file"
-          @input="handleFileInput"
           class="bg-slate-100 rounded-lg"
+          @input="handleFileInput"
         />
         <cms-button @click="submit">submit</cms-button>
       </div>
     </section>
 
-    <section class="flex flex-col bg-slate-200 rounded-2xl m-3 p-3 gap-3">
-      <h2 class="font-bold text-xl">Files</h2>
+    <section class="flex flex-col bg-slate-200 rounded-2xl m-3 gap-3">
+      <h2 class="font-bold text-xl p-3">Files</h2>
 
       <ul class="flex flex-col gap-3">
-        <li v-for="file in fileDb" :key="file.id">
-          <div class="flex flex-col justify-between">
-            <div>{{ file.displayName }} - {{ file.fileId }}</div>
-            <div class="border border-slate-400">{{ file.localPath }}</div>
-            <img :src="file.fileUrl" class="max-w-12" />
-            <cms-button @click="handleDeleteFile(file.fileId)">
-              delete
-            </cms-button>
-          </div>
+        <li
+          v-for="file in fileDb"
+          :key="file.id"
+          class="flex justify-between items-center gap-3 hover:bg-slate-300 p-3 rounded-xl"
+        >
+          <div>{{ file.displayName }} - {{ file.fileId }}</div>
+          <img :src="file.fileUrl" class="max-w-12" />
+          <cms-button @click="handleDeleteFile(file.fileId)">
+            delete
+          </cms-button>
         </li>
       </ul>
     </section>
