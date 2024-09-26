@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { useFilesStore } from "~/stores/files";
+
 definePageMeta({
   layout: "cms",
 });
 
 // handleFileInput can handle multiple files
 const { handleFileInput, files } = useFileStorage();
+
+const filesStore = useFilesStore();
+
+filesStore.fetchFiles();
 
 const fileDb = ref(await $fetch("/api/files"));
 
@@ -47,9 +53,8 @@ const handleDeleteFile = async (fileId: string) => {
         <li
           v-for="file in fileDb"
           :key="file.id"
-          class="flex justify-between items-center gap-3 hover:bg-slate-300 p-3 rounded-xl"
+          class="flex justify-between items-center hover:bg-slate-300 p-3 rounded-xl"
         >
-          <div>{{ file.displayName }} - {{ file.fileId }}</div>
           <img :src="file.fileUrl" class="max-w-12" />
           <cms-button @click="handleDeleteFile(file.fileId)">
             delete
