@@ -1,13 +1,20 @@
 <script setup lang="ts">
 const emit = defineEmits<{
-	(e: 'change', url: string): void,
-}>()
+  (e: "change", url: string): void;
+}>();
 
-const files = ref<File[]>([])
-
+const files = useFilesStore();
 </script>
 
 <template>
-	<!-- <input type="file" accept="image/*" :v-model="files" /> -->
-	<input type="url" v-model="props.content.url" @input="emit('change', props.content)" />
+  <select @change="$emit('change', ($event.target as HTMLSelectElement).value)">
+    <option value="none">Please choose an image</option>
+    <option
+      v-for="file in files.files"
+      :key="file.id"
+      :value="file.displayName"
+    >
+      {{ file.displayName }}
+    </option>
+  </select>
 </template>

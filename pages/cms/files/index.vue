@@ -10,8 +10,6 @@ const { handleFileInput, files } = useFileStorage();
 
 const filesStore = useFilesStore();
 
-filesStore.fetchFiles();
-
 const fileDb = ref(await $fetch("/api/files"));
 
 const submit = async () => {
@@ -21,6 +19,8 @@ const submit = async () => {
       files: files.value,
     },
   });
+
+  filesStore.fetchFiles();
 };
 
 const handleDeleteFile = async (fileId: string) => {
@@ -56,6 +56,7 @@ const handleDeleteFile = async (fileId: string) => {
           class="flex justify-between items-center hover:bg-slate-300 p-3 rounded-xl"
         >
           <img :src="file.fileUrl" class="max-w-12" />
+          {{ file.displayName }}
           <cms-button @click="handleDeleteFile(file.fileId)">
             delete
           </cms-button>
